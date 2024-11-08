@@ -6,14 +6,18 @@
     <title>ByteBite Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kursor"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
 </head>
-<body>
+
+<body class="flex flex-col items-center">
     <!-- Header begin -->
-    <header class="flex flex-col items-center max-w-screen-lg">
+    <header class="flex flex-col max-w-screen-xl w-full">
         <!-- Navigation bar begin -->
-        <nav class="flex justify-between flex-row " >
+        <nav class="flex flex-row justify-between" >
             <div>
-                <ul class="">
+                <ul class="flex">
                     <li>Inicio</li>
                     <li>Nosotros</li>
                     <li>Servicios</li>
@@ -309,4 +313,10 @@
         </div> <!-- Form end -->
     </div> <!-- Contact us end -->
 </body>
+<script>
+    new kursor({
+      type: 4,
+      removeDefaultCursor: true
+    })
+</script>
 </html>
