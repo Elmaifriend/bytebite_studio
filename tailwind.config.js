@@ -8,6 +8,7 @@ module.exports = {
           "highlight": "#6233a4",
           "light-highlight": "#9063cf",
           "secondary": "#f3dad7",
+          "tertiary": "#cbc2cc",
           "foreground": "#fef6ff",
         },
         fontFamily: {
