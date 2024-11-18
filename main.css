@@ -949,8 +949,8 @@ select {
   scroll-snap-align: center;
 }
 
-.scroll-m-\[26rem\] {
-  scroll-margin: 26rem;
+.scroll-m-\[28rem\] {
+  scroll-margin: 28rem;
 }
 
 .flex-col {
@@ -1129,6 +1129,10 @@ select {
 .py-48 {
   padding-top: 12rem;
   padding-bottom: 12rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .pt-52 {
