@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    scroll-behavior: smooth;
+}
+
+/* Card utilities */
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.card:hover .front {
+    transform: scale(0.95);
+}
+
+.card:hover .back {
+    transform: scale(0.95) rotateY(180deg);
+}
+
+.card .front, .card .back {
+    transition: transform 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.card {
+    transition: transform .7s;
+} 
+
+.card .back, .card .front {
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.card .back {
+    transform: rotateY(180deg);
+}
+
+
+.card.flip {
+    transform: rotateY(180deg);
+}
