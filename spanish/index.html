@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBite Studio</title>
+    <link rel="stylesheet" href="../main.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kursor"></script>
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col gap-24 font-sans font-normal bg-body bg-top bg-no-repeat text-foreground">
+    <!-- Navigation bar begin -->
+    <nav x-data="{ open: false }" class="w-screen px-8 py-4 fixed top-0 z-20 bg-glass backdrop-blur-md overflow-visible">
+        <!-- Menu begin -->
+        <div class="container mx-auto flex flex-col items-center md:flex-row-reverse md:justify-between">
+            <!-- Buttons begin -->
+            <div class="w-full flex justify-between md:w-fit">
+                <div class="cursor-pointer md:hidden">
+                    <i x-on:click="open = !open" class="bx bx-menu bx-flip-vertical bx-md cursor-pointer select-none hover:text-foreground/60 transition-colors ease-in"></i>
+                </div>
+                
+                <a class="py-2 px-4 flex justify-center items-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#contact">
+                    <span>Contactanos</span>
+                    <i class="bx bx-chevron-right text-2xl "></i>
+                </a>
+            </div> <!-- Buttons end -->
+            
+            <!-- Items begin -->
+            <div x-show="open" x-transition class="md:!block">
+                <ul class="w-screen px-12 py-4 divide-y-2 divide-tertiary/10 md:divide-y-0 md:w-auto md:flex md:gap-8 md:p-0 md:bg-none">
+                    <h1 class="text-5xl font-bold py-4 md:hidden">ByteBite Studio</h1>
+                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                        <a class="select-none" href="#header">Inicio</a>
+                    </li>
+                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                        <a class="select-none" href="#about-us">Nosotros</a>
+                    </li>
+                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                        <a class="select-none" href="#services">Servicios</a>
+                    </li>
+                    <li class="cursor-pointer py-4 pb-0 md:py-0 hover:text-tertiary transition-colors ease-in">
+                        <a class="select-none" href="#faq">FAQ</a>
+                    </li>
+                </ul>
+            </div> <!-- items end -->
+        </div> <!-- Menu end -->
+    </nav> <!-- Navigation bar end -->
+    
+    <!-- Header begin -->
+    <header class="py-48 pt-52 px-8 flex flex-wrap gap-12 justify-center relative" id="header">
+        <!-- Title begin -->
+        <div class="flex flex-col gap-3 justify-center items-start">
+            <div class="flex flex-col gap-2">
+                <h1 class="text-6xl font-bold">ByteBite Studio</h1>
+                <h2 class="text-lg text-tertiary">El cambio que tu empresa necesita</h2>
+            </div>
+            <a class="py-2 px-4 flex justify-center items-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#contact">
+                <span>Contactanos</span>
+                <i class="bx bx-chevron-right text-2xl "></i>
+            </a>
+        </div> <!-- Title end -->
+        
+        <!-- Description begin -->
+        <div class="p-8 rounded-lg max-w-xs flex flex-col gap-2 bg-glass backdrop-blur-md">
+            <h2 class="text-2xl font-bold">Simple.</h2>
+            <h2 class="text-2xl font-bold">Eficiente.</h2>
+            <h2 class="text-2xl font-bold">Accesible.</h2>
+            <p class="text-sm text-tertiary">Ya estamos ayudando a otras empresas, queremos ayudarte a ti también.</p>
+        </div> <!-- Description end -->
+    </header> <!-- Header end -->
+    
+    <!-- About us begin -->
+    <div class="px-8 flex flex-wrap justify-center gap-2 scroll-m-[28rem] md:gap-4 md:scroll-m-20" id="about-us">
+        <img class="w-full max-w-sm bg-[radial-gradient(rgb(144,99,207),_rgba(144,99,207,0.25)_40%,_transparent_70%)]" src="../assets/about-us-laptop.png" alt="Laptop">
+        <div class="max-w-xl flex flex-col justify-center gap-2">
+            <h1 class="text-4xl font-bold text-center">Soluciones Personalizadas</h1>
+            <p class="text-sm text-tertiary text-center">Nos especializamos en el desarrollo de software a medida, aplicaciones web y móviles que se adaptan a las necesidades específicas de tu negocio. Desde la idea hasta la implementación, te acompañamos en cada paso del proceso para crear soluciones tecnológicas que optimicen tu operación y mejoren tu presencia digital.</p>
+        </div>
+    </div> <!-- About us end -->
+
+    <!-- Services begin -->
+    <div x-data="{ cardPosition: 0 }" class="flex flex-col gap-2 relative scroll-m-[28rem] md:gap-4 md:items-center md:scroll-m-20" id="services">
+        <h1 class="text-4xl font-bold text-center">Servicios</h1>
+        
+        <!-- Cards begin -->
+        <div x-ref="services" class="max-w-4xl px-32 flex gap-4 justify-start overflow-auto scrollbar-none snap-x md:flex-wrap md:px-0 md:w-full md:justify-center">
+            <!-- Buttons begin -->
+            <div class="w-full absolute top-2/4 left-0 px-12 flex justify-between md:hidden">
+                <button x-on:click="$refs.services.scrollLeft -= cardPosition + 150" class="z-10 rounded-full bg-background text-tertiary select-none hover:text-tertiary/60 transition-colors ease-in">
+                    <i class='bx bx-chevron-left bx-lg'></i>
+                </button>
+                <button x-on:click="$refs.services.scrollLeft += cardPosition + 150" class="z-10 rounded-full bg-background text-tertiary select-none hover:text-tertiary/60 transition-colors ease-in">
+                    <i class='bx bx-chevron-right bx-lg'></i>
+                </button>
+            </div> <!-- Buttons end -->
+            
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bxs-devices text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">Apps Móviles para tu Negocio</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+                
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Creamos aplicaciones móviles para iOS y Android, centradas en la experiencia de usuario y rendimiento eficiente.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bx-laptop text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">Soluciones Web Personalizadas</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Desarrollamos aplicaciones web a medida, optimizadas para rendimiento y escalabilidad, adaptadas a las necesidades de tu negocio.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bx-cart text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">E-Commerce a tu Medida</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Desarrollamos tiendas en línea con integración de pagos y gestión de productos para aumentar tus ventas.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bx-window-alt text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">Landing Pages que Convierten</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Diseñamos landing pages optimizadas para captar leads y convertir visitantes en clientes.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bx-line-chart text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">Transformación Digital</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Implementamos soluciones tecnológicas que optimizan procesos y mejoran tu competitividad.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+
+            <!-- Card begin -->
+            <div x-data="{ open: false }" x-on:click="open = !open" x-bind:class="open ? 'flip' : ''" class="card w-full max-w-56 h-64 shrink-0 cursor-pointer snap-center">
+                <!-- Front begin -->
+                <div class="front w-full h-full p-4 flex flex-col justify-center align-middle gap-4 rounded-lg text-center bg-gradient">
+                    <i class="bx bx-sitemap text-7xl"></i>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-l font-bold md:text-xl">Consultoría Tecnológica</h1>
+                        <span class="text-sm text-tertiary select-none underline">Ver mas</span>
+                    </div>
+                </div> <!-- Front end -->
+
+                <!-- Back begin -->
+                <div class="back w-full h-full p-4 flex justify-center items-center rounded-lg bg-gradient">
+                    <p class="text-center text-sm">Ofrecemos asesoría especializada para ayudarte a resolver retos tecnológicos y alcanzar tus objetivos.</p>
+                </div> <!-- Back end -->
+            </div> <!-- Card end -->
+        </div> <!-- Cards end -->
+    </div> <!-- Services end -->
+
+    <!-- FAQ begin -->
+    <div class="px-8 flex flex-col gap-2 scroll-m-[28rem] md:scroll-m-20" id="faq">
+        <h1 class="text-4xl font-bold text-center">FAQ</h1>
+
+        <!-- Questions begin -->
+        <div class="container mx-auto w-full divide-y-2 divide-tertiary/10">
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Qué servicios ofrece su agencia de software?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Ofrecemos desarrollo de aplicaciones web, desarrollo de aplicaciones móviles, creación de landing pages, tiendas en línea, transformación digital y consultorías tecnológicas personalizadas.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Cuánto tiempo toma desarrollar una aplicación?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+                     
+                <p x-show="open" x-transition class="text-sm text-tertiary">El tiempo depende de la complejidad del proyecto. Generalmente, las aplicaciones web y móviles básicas pueden tardar entre 4 y 12 semanas, mientras que proyectos más grandes pueden requerir más tiempo.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Cómo se define el precio de un proyecto?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">El costo se basa en la complejidad, los requisitos específicos, y el tiempo necesario para completarlo. Ofrecemos presupuestos personalizados tras una consulta inicial gratuita.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Puedo hacer modificaciones a la aplicación después de lanzarla?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">¡Por supuesto! Ofrecemos servicios de mantenimiento y soporte para implementar actualizaciones, mejoras o nuevas funcionalidades después del lanzamiento.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Ofrecen soluciones para e-commerce?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Sí, desarrollamos tiendas en línea con integración de pasarelas de pago, gestión de productos e inventarios, y diseño optimizado para mejorar las ventas.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Realizan proyectos de transformación digital?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Sí, ayudamos a empresas a modernizar sus procesos, adoptando tecnologías que mejoren la eficiencia, reduzcan costos y aumenten la productividad.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Pueden trabajar en un proyecto ya iniciado?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Sí, podemos continuar con proyectos en marcha, evaluando el estado actual y proponiendo mejoras o desarrollando nuevas funcionalidades.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Qué tan involucrado estaré en el proceso de desarrollo?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Mantenemos una comunicación constante y transparente durante todo el proceso. Estarás involucrado en cada etapa clave, desde la planificación hasta la entrega final.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Ofrecen consultorías?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Sí, ofrecemos consultorías tecnológicas para ayudarte a tomar decisiones informadas sobre el desarrollo, mejora o adopción de nuevas tecnologías.</p>
+            </div> <!-- Question end -->
+
+            <!-- Question begin -->
+            <div x-data="{ open: false }" class="p-2">
+                <!-- Title begin -->
+                <div x-on:click="open = !open" class="py-4 flex justify-between items-center font-bold cursor-pointer lg:py-0">
+                    <h1>¿Cómo se inicia un proyecto con ustedes?</h1>
+                    <i x-bind:class="open ? 'bx-rotate-180' : ''" class="bx bx-chevron-down text-3xl transition-transform ease-in"></i>
+                </div> <!-- Title end -->
+
+                <p x-show="open" x-transition class="text-sm text-tertiary">Puedes contactarnos para una consulta inicial, donde discutiremos tus necesidades y objetivos. A partir de ahí, te proporcionaremos una propuesta detallada.</p>
+            </div> <!-- Question end -->
+        </div> <!-- Questions end -->
+    </div> <!-- FAQ end -->
+
+    <!-- Contact us begin -->
+    <div class="container mx-auto px-8 flex flex-col gap-4 scroll-m-[28rem] md:scroll-m-20" id="contact">
+        <h1 class="text-4xl font-bold text-center">¡Contactanos!</h1>
+
+        <div class="flex flex-col gap-12 items-center lg:flex-row-reverse lg:justify-center">
+            <!-- Form begin -->
+            <form action="https://api.web3forms.com/submit" method="POST"
+                class="w-full max-w-xl flex flex-col align-center gap-4">
+                
+                <input type="hidden" name="access_key" value="389c6620-6b47-4d65-92c0-c6febc72ed48">
+
+                <fieldset class="flex flex-col gap-1">
+                    <label for="name">Nombre</label>
+                    <input class="form-input rounded-lg text-sm focus:ring-2 focus:ring-highlight text-background" type="text" name="name" placeholder="Ingresa tu nombre completo">
+                </fieldset>
+
+                <fieldset class="flex flex-col gap-1">
+                    <label for="mail">Correo</label>
+                    <input class="form-input rounded-lg text-sm focus:ring-2 focus:ring-highlight text-background" type="text" name="mail" placeholder="Ingresa tu correo electrónico">
+                </fieldset>
+
+                <fieldset class="flex flex-col gap-1">
+                    <label for="phone">Telefono (opcional)</label>
+                    <input class="form-input rounded-lg text-sm focus:ring-2 focus:ring-highlight text-background" type="text" name="phone" placeholder="Ingresa tu numero telefonico">
+                </fieldset>
+
+                <fieldset class="flex flex-col gap-1">
+                    <label for="message">¿Cómo podemos ayudarte?</label>
+                    <textarea class="form-textarea rounded-lg resize-none text-sm focus:ring-2 focus:ring-highlight text-background" type="textarea" rows="5" name="message" placeholder="Cuentanos como podemos ayudarte"></textarea>
+                </fieldset>
+
+                <button class="py-2 px-4 flex justify-center items-center gap-1 rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" type="submit">
+                    <span>Contactanos</span>
+                    <i class="bx bx-envelope bx-sm"></i>
+                </button>
+            </form> <!-- Form end -->
+
+            <!-- Description begin -->
+            <div class="max-w-xl flex flex-col items-center gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-center">¿Tienes alguna pregunta o necesitas más información?</h1>
+                    <p class="text-sm text-tertiary text-center">Puedes enviarnos un mensaje rápidamente por WhatsApp haciendo clic en el botón de abajo, o si lo prefieres, llena el formulario y te responderemos por correo lo antes posible.</p>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=526647921114&text=Me%20gustar%C3%ADa%20saber%20mas%20sobre%20sus%20servicios!"
+                class="py-2 px-6 flex justify-center items-center gap-2 rounded-full bg-whatsapp select-none hover:bg-whatsapp/60 transition-colors ease-in">
+                    <i class="bx bxl-whatsapp text-4xl"></i>
+                    <div class="flex flex-col gap-1 items-start">
+                        <span class="text-xs leading-none">Escribenos en</span>
+                        <span class="text-lg font-bold leading-none">WhatsApp</span>
+                    </div>
+                </a>
+            </div> <!-- Description end -->
+        </div>
+    </div> <!-- Contact us end -->
+
+    <!-- Footer begin -->
+    <div class="py-24 flex flex-wrap justify-center align-middle bg-dark-highlight/10">
+        <span class="text-xs text-tertiary">Propiedad de ByteBite Studio</span>
+    </div> <!-- Footer end -->
+</body>
+<script>
+    new kursor({
+        color: "#fef6ff",
+        type: 4,
+        removeDefaultCursor: true
+    })
+</script>
+</html>
