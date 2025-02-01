@@ -1,10 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin 'tailwind-scrollbar';
+
+@theme {
+  --color-*: initial;
+  --color-background: #101418;
+  --color-dark-highlight: #20153a;
+  --color-highlight: #6233a4;
+  --color-light-highlight: #9063cf;
+  --color-secondary: #f3dad7;
+  --color-tertiary: #cbc2cc;
+  --color-foreground: #fef6ff;
+  --color-whatsapp: #128c7e;
+  --color-glass: rgba(8, 10, 12, 0.55);
+
+  --font-*: initial;
+  --font-sans: Inter, sans-serif;
+  --font-serif: Inter, serif;
+
+  --background-image-body: url('/assets/hero-background.png'),
+    linear-gradient(0, #080a0c 75%, #101418);
+  --background-image-gradient: radial-gradient(
+    at right bottom,
+    #6233a4,
+    rgba(32 21 58) 90%
+  );
+  --highlight-glow: 0 0 20px 5px var(--color-highlight);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 * {
     scroll-behavior: smooth;
 }
+
+/* Emoji Font */
+.noto-color-emoji-regular {
+    font-family: "Noto Color Emoji", serif;
+    font-weight: 400;
+    font-style: normal;
+}  
+
 
 /* Card utilities */
 .card {

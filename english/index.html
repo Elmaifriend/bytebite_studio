@@ -14,46 +14,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="flex flex-col gap-24 font-sans font-normal bg-body bg-top bg-no-repeat text-foreground">
+<body class="flex flex-col items-center gap-24 font-sans font-normal bg-body bg-top bg-no-repeat text-foreground">
     <!-- Navigation bar begin -->
     <nav x-data="{ open: false }" class="w-screen px-8 py-4 fixed top-0 z-20 bg-glass backdrop-blur-md overflow-visible">
         <!-- Menu begin -->
         <div class="container mx-auto flex flex-col items-center md:flex-row-reverse md:justify-between">
             <!-- Buttons begin -->
-            <div class="w-full flex justify-between md:w-fit">
-                <div class="cursor-pointer md:hidden">
+            <div class="w-full flex justify-between items-center md:w-fit">
+                <div class="cursor-pointer md:hidden flex items-center">
                     <i x-on:click="open = !open" class="bx bx-menu bx-flip-vertical bx-md cursor-pointer select-none hover:text-foreground/60 transition-colors ease-in"></i>
                 </div>
                 
-                <a class="py-2 px-4 flex justify-center items-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#contact">
-                    <span>Contact us</span>
-                    <i class="bx bx-chevron-right text-2xl "></i>
-                </a>
+                <div class="flex gap-4 items-center">
+                    <a class="relative flex items-center gap-0 text-tertiary hover:text-foreground transition-colors ease-in" href="#spanish">
+                        ES
+                    </a>
+                    <a class="py-2 px-4 flex justify-center items-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#contact">
+                        <span>Contact Us</span>
+                        <i class="bx bx-chevron-right text-2xl "></i>
+                    </a>
+                </div>
             </div> <!-- Buttons end -->
-            
             <!-- Items begin -->
             <div x-show="open" x-transition class="md:!block">
                 <ul class="w-screen px-12 py-4 divide-y-2 divide-tertiary/10 md:divide-y-0 md:w-auto md:flex md:gap-8 md:p-0 md:bg-none">
                     <h1 class="text-5xl font-bold py-4 md:hidden">ByteBite Studio</h1>
-                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
                         <a class="select-none" href="#header">Home</a>
                     </li>
-                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
                         <a class="select-none" href="#about-us">About Us</a>
                     </li>
-                    <li class="cursor-pointer py-4 md:py-0 hover:text-tertiary transition-colors ease-in">
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
                         <a class="select-none" href="#services">Services</a>
                     </li>
-                    <li class="cursor-pointer py-4 pb-0 md:py-0 hover:text-tertiary transition-colors ease-in">
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
                         <a class="select-none" href="#faq">FAQ</a>
                     </li>
+                    <li class="border-l-1 border-tertiary hidden md:block"></li>
+                    <li class="cursor-pointer py-4 pb-0 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#portfolio">Portfolio</a>
+                    </li>
                 </ul>
-            </div> <!-- items end -->
+            </div> <!-- Items end -->
         </div> <!-- Menu end -->
     </nav> <!-- Navigation bar end -->
     
     <!-- Header begin -->
-    <header class="py-48 pt-52 px-8 flex flex-wrap gap-12 justify-center relative" id="header">
+    <header class="container py-48 pt-52 px-8 flex flex-wrap gap-12 justify-center relative" id="header">
         <!-- Title begin -->
         <div class="flex flex-col gap-3 justify-center items-start">
             <div class="flex flex-col gap-2">
@@ -76,7 +84,7 @@
     </header> <!-- Header end -->
     
     <!-- About us begin -->
-    <div class="px-8 flex flex-wrap justify-center gap-2 scroll-m-[28rem] md:gap-4 md:scroll-m-20" id="about-us">
+    <div class="container px-8 flex flex-wrap justify-center gap-2 scroll-m-[28rem] md:gap-4 md:scroll-m-20" id="about-us">
         <img class="w-full max-w-sm bg-[radial-gradient(rgb(144,99,207),_rgba(144,99,207,0.25)_40%,_transparent_70%)]" src="../assets/about-us-laptop.png" alt="Laptop">
         <div class="max-w-xl flex flex-col justify-center gap-2">
             <h1 class="text-4xl font-bold text-center">Customized Solutions</h1>
@@ -85,11 +93,11 @@
     </div> <!-- About us end -->
 
     <!-- Services begin -->
-    <div x-data="{ cardPosition: 0 }" class="flex flex-col gap-2 relative scroll-m-[28rem] md:gap-4 md:items-center md:scroll-m-20" id="services">
+    <div x-data="{ cardPosition: 0 }" class="container flex flex-col gap-2 relative scroll-m-[28rem] md:gap-4 md:items-center md:scroll-m-20" id="services">
         <h1 class="text-4xl font-bold text-center">Our Services</h1>
         
         <!-- Cards begin -->
-        <div x-ref="services" class="max-w-4xl px-32 flex gap-4 justify-start overflow-auto scrollbar-none snap-x md:flex-wrap md:px-0 md:w-full md:justify-center">
+        <div x-ref="services" class="max-w-4xl px-16 flex gap-4 justify-start overflow-auto scrollbar-none snap-x md:flex-wrap md:px-0 md:w-full md:justify-center">
             <!-- Buttons begin -->
             <div class="w-full absolute top-2/4 left-0 px-12 flex justify-between md:hidden">
                 <button x-on:click="$refs.services.scrollLeft -= cardPosition + 150" class="z-10 rounded-full bg-background text-tertiary select-none hover:text-tertiary/60 transition-colors ease-in">
@@ -203,9 +211,60 @@
             </div> <!-- Card end -->
         </div> <!-- Cards end -->
     </div> <!-- Services end -->
+  
+    <!-- Portfolio begin -->
+    <div x-data="{ scrollPosition: 0 }" class="container px-8 flex flex-col gap-6 scroll-m scroll-m-[28rem] md:scroll-m-20" id="portfolio">
+        <!-- Title begin -->
+        <div class="flex flex-col gap-2">
+            <h1 class="text-4xl font-bold text-center">Businesses that <span class="px-2 inline-block relative after:content-[''] after:w-full after:h-[0.60em] after:bg-highlight after:absolute after:bottom-0 after:left-0 after:-z-10">trust</span> us</h1>
+            <h2 class="text-lg text-tertiary text-center">Portfolio</h2>
+        </div> <!-- Title end -->
+        
+        <!-- Projects list begin -->
+         <div class="relative">
+             <div x-ref="portfolio" class="flex gap-8 flex-nowrap justify-start py-5 overflow-x-scroll scrollbar-none snap-x lg:justify-center lg:flex-wrap">
+                 <!-- Buttons begin -->
+                 <div class="w-full absolute top-26 left-0 px-2 flex justify-between lg:hidden">
+                     <button x-on:click="$refs.portfolio.scrollLeft -= scrollPosition + 320" class="z-10 rounded-full bg-background text-tertiary select-none hover:text-tertiary/60 transition-colors ease-in">
+                    <i class='bx bx-chevron-left bx-lg'></i>
+                </button>
+                <button x-on:click="$refs.portfolio.scrollLeft += scrollPosition + 320" class="z-10 rounded-full bg-background text-tertiary select-none hover:text-tertiary/60 transition-colors ease-in">
+                    <i class='bx bx-chevron-right bx-lg'></i>
+                </button>
+                </div> <!-- Buttons end -->
+                <!-- Project begin -->
+                <div class="bg-foreground lg:max-w-80 md:max-w-72 max-w-72 shrink-0 h-56 w-full p-6 flex items-end rounded-2xl snap-center transition-shadow ease-in hover:shadow-(--highlight-glow)">
+                    <h3 class="text-md text-tertiary font-bold">
+                        Proyect Name
+                    </h3>
+                </div> <!-- Project end -->
+                <!-- Project begin -->
+                <div class="bg-foreground lg:max-w-80 md:max-w-72 max-w-72 shrink-0 h-56 w-full p-6 flex items-end rounded-2xl snap-center transition-shadow ease-in hover:shadow-(--highlight-glow)">
+                    <h3 class="text-md text-tertiary font-bold">
+                        Proyect Name
+                    </h3>
+                </div> <!-- Project end -->
+                <!-- Project begin -->
+                <div class="bg-foreground lg:max-w-80 md:max-w-72 max-w-72 shrink-0 h-56 w-full p-6 flex items-end rounded-2xl snap-center transition-shadow ease-in hover:shadow-(--highlight-glow)">
+                    <h3 class="text-md text-tertiary font-bold">
+                        Proyect Name
+                    </h3>
+                </div> <!-- Project end -->
+                <!-- Project begin -->
+                <div class="bg-foreground lg:max-w-80 md:max-w-72 max-w-72 shrink-0 h-56 w-full p-6 flex items-end rounded-2xl snap-center transition-shadow ease-in hover:shadow-(--highlight-glow)">
+                    <h3 class="text-md text-tertiary font-bold">
+                        Proyect Name
+                    </h3>
+                </div> <!-- Project end -->
+            </div>  <!-- Projects list end -->
+        </div>
+        <a class="py-2 px-4 flex justify-center items-center self-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#portfolio">
+            <span>See More</span>
+        </a>
+    </div> <!-- Portfolio end -->
 
     <!-- FAQ begin -->
-    <div class="px-8 flex flex-col gap-2 scroll-m-[28rem] md:scroll-m-20" id="faq">
+    <div class="container px-8 flex flex-col gap-2 scroll-m-[28rem] md:scroll-m-20" id="faq">
         <h1 class="text-4xl font-bold text-center">FAQ</h1>
 
         <!-- Questions begin -->
@@ -323,7 +382,7 @@
     </div> <!-- FAQ end -->
 
     <!-- Contact us begin -->
-    <div class="container mx-auto px-8 flex flex-col gap-4 scroll-m-[28rem] md:scroll-m-20" id="contact">
+    <div class="container px-8 flex flex-col gap-4 scroll-m-[28rem] md:scroll-m-20" id="contact">
         <h1 class="text-4xl font-bold text-center">Contact us!</h1>
 
         <div class="flex flex-col gap-12 items-center lg:flex-row-reverse lg:justify-center">
@@ -365,7 +424,7 @@
                     <h1 class="text-2xl font-bold text-center">Do you have further questions or need any additional information?</h1>
                     <p class="text-sm text-tertiary text-center">You can quickly send us a message via WhatsApp by clicking on the button below, or if you prefer, fill out the contact form and we'll get back to you by email as soon as possible.</p>
                 </div>
-                <a href="https://api.whatsapp.com/send?phone=526647921114&text=Me%20gustar%C3%ADa%20saber%20mas%20sobre%20sus%20servicios!"
+                <a href="https://api.whatsapp.com/send?phone=526642677530&text=Me%20gustar%C3%ADa%20saber%20mas%20sobre%20sus%20servicios!"
                 class="py-2 px-6 flex justify-center items-center gap-2 rounded-full bg-whatsapp select-none hover:bg-whatsapp/60 transition-colors ease-in">
                     <i class="bx bxl-whatsapp text-4xl"></i>
                     <div class="flex flex-col gap-1 items-start">
@@ -378,7 +437,7 @@
     </div> <!-- Contact us end -->
 
     <!-- Footer begin -->
-    <div class="py-24 flex flex-wrap justify-center align-middle bg-dark-highlight/10">
+    <div class="container py-24 flex flex-wrap justify-center align-middle bg-dark-highlight/10">
         <span class="text-xs text-tertiary">Property of ByteBite Studio</span>
     </div> <!-- Footer end -->
 </body>
