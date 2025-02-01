@@ -26,6 +26,7 @@
     #6233a4,
     rgba(32 21 58) 90%
   );
+  --highlight-glow: 0 0 20px 5px var(--color-highlight);
 }
 
 /*
@@ -49,6 +50,14 @@
 * {
     scroll-behavior: smooth;
 }
+
+/* Emoji Font */
+.noto-color-emoji-regular {
+    font-family: "Noto Color Emoji", serif;
+    font-weight: 400;
+    font-style: normal;
+}  
+
 
 /* Card utilities */
 .card {

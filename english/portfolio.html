@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteBite Studio</title>
+    <link rel="stylesheet" href="../main.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kursor"></script>
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex flex-col items-center font-sans font-normal bg-body bg-top bg-no-repeat text-foreground">
+    <!-- Navigation bar begin -->
+    <nav x-data="{ open: false }" class="w-screen px-8 py-4 fixed top-0 z-20 bg-glass backdrop-blur-md overflow-visible">
+        <!-- Menu begin -->
+        <div class="container mx-auto flex flex-col items-center md:flex-row-reverse md:justify-between">
+            <!-- Buttons begin -->
+            <div class="w-full flex justify-between items-center md:w-fit">
+                <div class="cursor-pointer md:hidden flex items-center">
+                    <i x-on:click="open = !open" class="bx bx-menu bx-flip-vertical bx-md cursor-pointer select-none hover:text-foreground/60 transition-colors ease-in"></i>
+                </div>
+                
+                <div class="flex gap-4 items-center">
+                    <a class="relative flex items-center gap-0 text-tertiary hover:text-foreground transition-colors ease-in" href="#spanish">
+                        ES
+                    </a>
+                    <a class="py-2 px-4 flex justify-center items-center rounded-full bg-highlight font-bold select-none hover:bg-highlight/60 transition-colors ease-in" href="#contact">
+                        <span>Contact Us</span>
+                        <i class="bx bx-chevron-right text-2xl "></i>
+                    </a>
+                </div>
+            </div> <!-- Buttons end -->
+            <!-- Items begin -->
+            <div x-show="open" x-transition class="md:!block">
+                <ul class="w-screen px-12 py-4 divide-y-2 divide-tertiary/10 md:divide-y-0 md:w-auto md:flex md:gap-8 md:p-0 md:bg-none">
+                    <h1 class="text-5xl font-bold py-4 md:hidden">ByteBite Studio</h1>
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#header">Home</a>
+                    </li>
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#about-us">About Us</a>
+                    </li>
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#services">Services</a>
+                    </li>
+                    <li class="cursor-pointer py-4 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#faq">FAQ</a>
+                    </li>
+                    <li class="border-l-1 border-tertiary hidden md:block"></li>
+                    <li class="cursor-pointer py-4 pb-0 md:py-0 text-tertiary hover:text-foreground transition-colors ease-in">
+                        <a class="select-none" href="#portfolio">Portfolio</a>
+                    </li>
+                </ul>
+            </div> <!-- Items end -->
+        </div> <!-- Menu end -->
+    </nav> <!-- Navigation bar end -->
+    
+    <!-- Header begin -->
+    <header class="container py-48 pt-52 px-8 flex justify-center" id="header">
+        <!-- Title begin -->
+        <div class="flex flex-col gap-2">
+            <h1 class="text-6xl font-bold text-center">Portfolio</h1>
+            <h2 class="text-lg text-tertiary text-center">We help businesses build their online presence and expand their reach</h2>
+        </div> <!-- Title end -->
+    </header> <!-- Header end -->
+   
+    <div class="w-full py-8 gap-32 justify-center bg-glass backdrop-blur-md hidden md:flex">
+        <span class="font-bold">Simple.</span>
+        <span class="noto-color-emoji-regular">🚀</span>
+        <span class="font-bold">Efficient.</span>
+        <span class="noto-color-emoji-regular">✨</span>
+        <span class="font-bold">Accessible.</span>
+    </div>
+
+    <!-- Portfolio begin -->
+    <div class="bg-background w-full flex justify-center" id="portfolio">
+        <div class="container p-8 flex gap-8 flex-row flex-wrap justify-center md:px-16">
+            <!-- Project begin -->
+            <div class="flex flex-col gap-6 max-w-md lg:basis-[50%]">
+                <div class="bg-foreground h-64 max-w-md w-full rounded-2xl"></div>
+                <div class="flex flex-col gap-2">
+                    <h1 class="font-bold text-2xl">Proyect 1</h1>
+                    <p class="text-sm text-tertiary">We help businesses build their online presence and expand their reach</p>
+                    <a class="font-bold text-sm flex items-center gap-1 hover:text-light-highlight transition-colors ease-in" href="">
+                        See More
+                    <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Project end -->
+        
+            <!-- Project begin -->
+            <div class="flex flex-col gap-6 max-w-md lg:basis-[50%]">
+                <div class="bg-foreground h-64 max-w-md w-full rounded-2xl"></div>
+                <div class="flex flex-col gap-2">
+                    <h1 class="font-bold text-2xl">Proyect 1</h1>
+                    <p class="text-sm text-tertiary">We help businesses build their online presence and expand their reach</p>
+                    <a class="font-bold text-sm flex items-center gap-1 hover:text-light-highlight transition-colors ease-in" href="">
+                        See More
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Project end -->
+            
+            <!-- Project begin -->
+            <div class="flex flex-col gap-6 max-w-md lg:basis-[50%]">
+                <div class="bg-foreground h-64 max-w-md w-full rounded-2xl"></div>
+                <div class="flex flex-col gap-2">
+                    <h1 class="font-bold text-2xl">Proyect 1</h1>
+                    <p class="text-sm text-tertiary">We help businesses build their online presence and expand their reach</p>
+                    <a class="font-bold text-sm flex items-center gap-1 hover:text-light-highlight transition-colors ease-in" href="">
+                        See More
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Project end -->
+            
+            <!-- Project begin -->
+            <div class="flex flex-col gap-6 max-w-md lg:basis-[50%]">
+                <div class="bg-foreground h-64 max-w-md w-full rounded-2xl"></div>
+                <div class="flex flex-col gap-2">
+                    <h1 class="font-bold text-2xl">Proyect 1</h1>
+                    <p class="text-sm text-tertiary">We help businesses build their online presence and expand their reach</p>
+                    <a class="font-bold text-sm flex items-center gap-1 hover:text-light-highlight transition-colors ease-in" href="">
+                        See More
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Project end -->
+        </div>
+    </div> <!-- Portfolio end -->
+
+    <!-- Footer begin -->
+    <div class="container py-24 flex flex-wrap justify-center align-middle bg-dark-highlight/10">
+        <span class="text-xs text-tertiary">Property of ByteBite Studio</span>
+    </div> <!-- Footer end -->
+</body>
+<script>
+    new kursor({
+        color: "#fef6ff",
+        type: 4,
+        removeDefaultCursor: true
+    })
+</script>
+</html>
